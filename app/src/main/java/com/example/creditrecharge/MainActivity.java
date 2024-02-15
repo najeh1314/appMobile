@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String pwd = _txtPwd.getText().toString();
                 String pseudoName = _txtPseudoName.getText().toString();
-
                 if((pwd.equals("123456")) && (pseudoName.equals("Najeh"))){
                     Intent I = new Intent(getApplicationContext(), rechargeVue.class);
                     I.putExtra("userName", pseudoName);
@@ -37,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 
     }
 }

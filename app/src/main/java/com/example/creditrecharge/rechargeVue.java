@@ -1,11 +1,16 @@
 package com.example.creditrecharge;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.net.Uri;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +18,7 @@ public class rechargeVue extends AppCompatActivity {
     String operateur;
     TextView _txtVLigne, _txtLogin, _txtConsultSolde;
     EditText _txtTelNum, _txtClickableCodeRecharge, _txtCodeRecharge;
-    Button _btnConsulte, _btnValideRecharge;
+    Button _btnValideRecharge, _btnConsulte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class rechargeVue extends AppCompatActivity {
                   _txtConsultSolde.setBackgroundColor(Color.parseColor("#ffbd33"));
                   _txtVLigne.setBackgroundColor(Color.parseColor("#ffbd33"));
                   _txtClickableCodeRecharge.setBackgroundColor(Color.parseColor("#ffbd33"));
+                  _txtCodeRecharge.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
               }
               else if(telNum<29999999 && telNum>20000000) {
                   operateur = "Ooreedoo";
@@ -49,6 +55,7 @@ public class rechargeVue extends AppCompatActivity {
                   _txtConsultSolde.setBackgroundColor(Color.parseColor("#ff2d00"));
                   _txtVLigne.setBackgroundColor(Color.parseColor("#ff2d00"));
                   _txtClickableCodeRecharge.setBackgroundColor(Color.parseColor("#ff2d00"));
+                  _txtCodeRecharge.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
               }
               else if(telNum<99999999 && telNum>90000000) {
                   operateur = "TunTel";
@@ -57,6 +64,7 @@ public class rechargeVue extends AppCompatActivity {
                   _txtConsultSolde.setBackgroundColor(Color.parseColor("#0053ff"));
                   _txtVLigne.setBackgroundColor(Color.parseColor("#0053ff"));
                   _txtClickableCodeRecharge.setBackgroundColor(Color.parseColor("#0053ff"));
+                  _txtCodeRecharge.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
               }
               else
                   operateur = "Operateur non valide";
@@ -88,6 +96,24 @@ public class rechargeVue extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable s) {
+            }
+        });
+        _btnConsulte = findViewById(R.id.btnConsulte);
+        _btnConsulte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iTelephone = new Intent(Intent.ACTION_DIAL);
+                iTelephone.setData(Uri.parse("tel:" + Uri.encode(_txtConsultSolde.getText().toString())));
+                startActivity(iTelephone);
+            }
+        });
+        _btnValideRecharge = findViewById(R.id.btnValideRecharge);
+        _btnValideRecharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iTelephone = new Intent(Intent.ACTION_DIAL);
+                iTelephone.setData(Uri.parse("tel:" + Uri.encode(_txtClickableCodeRecharge.getText().toString())));
+                startActivity(iTelephone);
             }
         });
 
