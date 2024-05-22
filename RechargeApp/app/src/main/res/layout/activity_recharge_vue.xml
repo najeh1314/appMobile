@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".rechargeVue">
+    <ImageView
+        android:id="@+id/imgProfile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/border_txt"/>
+    <TextView
+        android:id="@+id/txtLogin"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imgProfile"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="20dp"
+        android:text="Login"
+        />
+    <TextView
+        android:id="@+id/txtVTelNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Saisir le numero du telephone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
+    <EditText
+        android:id="@+id/txtTelNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero de telephone"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:minHeight="40dp"
+        android:background="@drawable/border_txt"
+        android:maxLength="8"
+        app:layout_constraintTop_toBottomOf="@+id/txtVTelNum" />
+    <TextView
+        android:id="@+id/txtVLigne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#000000"
+        android:text="Votre Ligne est"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelNum" />
+    <TextView
+        android:id="@+id/txtVCodeRecharge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Saisir le code de recharge"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVLigne" />
+    <EditText
+        android:id="@+id/txtCodeRecharge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Code de recharge"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="60dp"
+        android:minHeight="40dp"
+        android:background="@drawable/border_txt"
+        app:layout_constraintTop_toBottomOf="@+id/txtVCodeRecharge" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCodeRecharge">
+
+        <EditText
+            android:id="@+id/txtClickableCodeRecharge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/border_txt"
+            android:editable="false"
+            android:hint="*000*123456789#"
+            android:minHeight="40dp" />
+
+        <Button
+            android:id="@+id/btnValideRecharge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:minHeight="30dp"
+            android:text="Valider" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txtVconsulteSolde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:text="Consulter votre solde"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVconsulteSolde">
+
+        <EditText
+            android:id="@+id/txtConsultSolde"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/border_txt"
+            android:editable="false"
+            android:hint="*0000#"
+            android:minHeight="40dp" />
+
+        <Button
+            android:id="@+id/btnConsulte"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:minHeight="30dp"
+            android:text="Consulter" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
